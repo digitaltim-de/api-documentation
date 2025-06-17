@@ -7,8 +7,8 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Minimized API Docs",
+  tagline: "Simple API Documentation with OpenAPI",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -32,15 +32,6 @@ const config: Config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          onInlineAuthors: "ignore",
-          onUntruncatedBlogPosts: "ignore",
-        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -56,9 +47,9 @@ const config: Config = {
         },
       },
       navbar: {
-        title: "My Site",
+        title: "Minimized API Docs",
         logo: {
-          alt: "My Site Logo",
+          alt: "Minimized API Docs Logo",
           src: "img/logo.svg",
         },
         items: [
@@ -66,18 +57,12 @@ const config: Config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "Documentation",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
             label: "Petstore API",
             position: "left",
             to: "/docs/category/petstore-api",
-          },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
           },
         ],
       },
@@ -88,56 +73,22 @@ const config: Config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
+                label: "Documentation",
                 to: "/docs/intro",
               },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                label: "Petstore API",
+                to: "/docs/category/petstore-api",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Minimized API Docs. Built with Docusaurus.`,
       },
       prism: {
         additionalLanguages: [
-          "ruby",
-          "csharp",
-          "php",
-          "java",
-          "powershell",
           "json",
           "bash",
-          "dart",
-          "objectivec",
-          "r",
         ],
       },
       languageTabs: [
@@ -152,85 +103,9 @@ const config: Config = {
           logoClass: "curl",
         },
         {
-          highlight: "csharp",
-          language: "csharp",
-          logoClass: "csharp",
-        },
-        {
-          highlight: "go",
-          language: "go",
-          logoClass: "go",
-        },
-        {
-          highlight: "javascript",
-          language: "nodejs",
-          logoClass: "nodejs",
-        },
-        {
-          highlight: "ruby",
-          language: "ruby",
-          logoClass: "ruby",
-        },
-        {
-          highlight: "php",
-          language: "php",
-          logoClass: "php",
-        },
-        {
-          highlight: "java",
-          language: "java",
-          logoClass: "java",
-          variant: "unirest",
-        },
-        {
-          highlight: "powershell",
-          language: "powershell",
-          logoClass: "powershell",
-        },
-        {
-          highlight: "dart",
-          language: "dart",
-          logoClass: "dart",
-        },
-        {
           highlight: "javascript",
           language: "javascript",
           logoClass: "javascript",
-        },
-        {
-          highlight: "c",
-          language: "c",
-          logoClass: "c",
-        },
-        {
-          highlight: "objective-c",
-          language: "objective-c",
-          logoClass: "objective-c",
-        },
-        {
-          highlight: "ocaml",
-          language: "ocaml",
-          logoClass: "ocaml",
-        },
-        {
-          highlight: "r",
-          language: "r",
-          logoClass: "r",
-        },
-        {
-          highlight: "swift",
-          language: "swift",
-          logoClass: "swift",
-        },
-        {
-          highlight: "kotlin",
-          language: "kotlin",
-          logoClass: "kotlin",
-        },
-        {
-          highlight: "rust",
-          language: "rust",
-          logoClass: "rust",
         },
       ],
     } satisfies Preset.ThemeConfig,

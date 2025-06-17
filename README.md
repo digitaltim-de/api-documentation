@@ -1,40 +1,72 @@
-# Template
+# Minimized OpenAPI Documentation Template
 
-This template is built for [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+This is a minimized version of the [Docusaurus OpenAPI Docs Template](https://github.com/PaloAltoNetworks/docusaurus-template-openapi-docs.git), built for [Docusaurus 3](https://docusaurus.io/). It has been stripped down to include only the essential components needed for API documentation.
 
-### Usage
+## What's Included
 
-```bash
-npx create-docusaurus@3.5.2 my-website --package-manager yarn
-```
+1. A basic documentation example (intro.md)
+2. The Petstore API example with OpenAPI specification
 
-> When prompted to select a template choose `Git repository`.
+All other components have been removed to create a minimal starting point for your API documentation.
 
-Template Repository URL:
-
-```bash
-https://github.com/PaloAltoNetworks/docusaurus-template-openapi-docs.git
-```
-
-> When asked how the template repo should be cloned choose "copy" (unless you know better).
+### Installation
 
 ```bash
-cd my-website
-yarn
+# Clone this repository
+git clone <your-repository-url>
+cd <repository-name>
+
+# Install dependencies
+npm install
 ```
 
 ### Local Development
 
 ```bash
-yarn start
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window at http://localhost:3000. Most changes are reflected live without having to restart the server.
+
+### Key Features
+
+1. **Basic Documentation** - See the example at http://localhost:3000/docs/intro
+2. **API Documentation** - See the Petstore API example at http://localhost:3000/docs/category/petstore-api
+
+### Adding Your Own API
+
+1. Place your OpenAPI specification file in the `examples/` directory
+2. Update the `docusaurus.config.ts` file to include your API specification:
+
+```typescript
+plugins: [
+  [
+    "docusaurus-plugin-openapi-docs",
+    {
+      id: "openapi",
+      docsPluginId: "classic",
+      config: {
+        yourapi: {  // Change this to your API name
+          specPath: "examples/your-api-spec.yaml",  // Path to your OpenAPI spec
+          outputDir: "docs/yourapi",  // Output directory for generated docs
+          sidebarOptions: {
+            groupPathsBy: "tag",
+            categoryLinkSource: "tag",
+          },
+        },
+      },
+    },
+  ],
+]
+```
+
+3. Run `npm run gen-api-docs` to generate the API documentation
+4. Update the `sidebars.ts` file to include your API in the sidebar
 
 ### Build
 
 ```bash
-yarn build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
