@@ -6,54 +6,105 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
   --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-heading-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-heading-font-weight: 700;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-transition-fast: 200ms;
+  --ifm-toc-border-color: var(--ifm-color-emphasis-200);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  --openapi-code-blue: #4285F4;
+  --openapi-code-green: #34A853;
+  --openapi-code-red: #EA4335;
+  --openapi-code-orange: #FBBC05;
+  --openapi-card-background: rgba(0, 0, 0, 0.03);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --ifm-navbar-background-color: rgba(15, 23, 42, 0.8);
+  --ifm-footer-background-color: #1e293b;
+  --openapi-card-background: rgba(255, 255, 255, 0.05);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
 
-/* Sidebar Method labels */
+/* Global style improvements */
+html, body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card styles for better visual hierarchy */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: all var(--ifm-transition-fast) ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Sidebar Method labels - modern flat design */
 .api-method>.menu__link {
   align-items: center;
   justify-content: start;
+  border-radius: 6px;
+  transition: background-color var(--ifm-transition-fast) ease;
 }
 
 .api-method>.menu__link::before {
   width: 50px;
   height: 20px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 20px;
   text-transform: uppercase;
   font-weight: 600;
-  border-radius: 0.25rem;
-  border: 1px solid;
+  border-radius: 4px;
   margin-right: var(--ifm-spacing-horizontal);
   text-align: center;
   flex-shrink: 0;
-  border-color: transparent;
   color: white;
+  letter-spacing: 0.5px;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.api-method>.menu__link:hover::before {
+  transform: scale(1.05);
 }
 
 .get>.menu__link::before {
   content: "get";
-  background-color: var(--ifm-color-primary);
+  background-color: var(--openapi-code-blue);
 }
 
 .put>.menu__link::before {
@@ -74,4 +125,73 @@
 .patch>.menu__link::before {
   content: "patch";
   background-color: var(--openapi-code-orange);
+}
+
+/* API endpoint cards */
+.api-endpoint {
+  background-color: var(--openapi-card-background);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid transparent;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.api-endpoint:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.api-endpoint.get {
+  border-left-color: var(--openapi-code-blue);
+}
+
+.api-endpoint.post {
+  border-left-color: var(--openapi-code-green);
+}
+
+.api-endpoint.put {
+  border-left-color: var(--openapi-code-blue);
+}
+
+.api-endpoint.delete {
+  border-left-color: var(--openapi-code-red);
+}
+
+.api-endpoint.patch {
+  border-left-color: var(--openapi-code-orange);
+}
+
+/* Code blocks with nicer styling */
+.theme-code-block {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+.button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+}
+
+.button--secondary:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
 }
