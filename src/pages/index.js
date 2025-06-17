@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -7,6 +7,7 @@ import styles from './index.module.css';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useHistory } from '@docusaurus/router';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -20,13 +21,8 @@ function HomepageHeader() {
             <div className={styles.buttons}>
               <Link
                 className="button button--primary button--lg"
-                to="/docs/intro">
-                Zur Dokumentation
-              </Link>
-              <Link
-                className="button button--secondary button--lg"
-                to="/docs/category/petstore-api">
-                API Referenz
+                to="/docs/petstore/swagger-petstore-yaml">
+                API Documentation
               </Link>
             </div>
           </div>
@@ -48,6 +44,13 @@ function HomepageHeader() {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  const history = useHistory();
+
+  useEffect(() => {
+    // Redirect to the Petstore API documentation page
+    history.replace('/docs/petstore/swagger-petstore-yaml');
+  }, [history]);
+
   return (
     <Layout
       title={siteConfig.title}

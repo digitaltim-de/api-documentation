@@ -4,8 +4,7 @@ This is a minimized version of the [Docusaurus OpenAPI Docs Template](https://gi
 
 ## What's Included
 
-1. A basic documentation example (intro.md)
-2. The Petstore API example with OpenAPI specification
+1. The Petstore API example with OpenAPI specification
 
 All other components have been removed to create a minimal starting point for your API documentation.
 
@@ -30,8 +29,7 @@ This command starts a local development server and opens up a browser window at 
 
 ### Key Features
 
-1. **Basic Documentation** - See the example at http://localhost:3000/docs/intro
-2. **API Documentation** - See the Petstore API example at http://localhost:3000/docs/category/petstore-api
+1. **API Documentation** - See the Petstore API example at http://localhost:3000/docs/petstore/swagger-petstore-yaml
 
 ### Adding Your Own API
 

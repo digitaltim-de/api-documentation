@@ -13,9 +13,8 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const sidebars: SidebarsConfig = {
-  tutorialSidebar: [
-    {type: "doc", id: "intro"},
-  ],
+  // Empty tutorialSidebar as we're removing the intro page
+  tutorialSidebar: [],
   openApiSidebar: [
     {
       type: "category",

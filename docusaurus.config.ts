@@ -15,6 +15,17 @@ const config: Config = {
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
+  // Redirect root to Petstore API page
+  customFields: {
+    routes: [
+      {
+        path: '/',
+        exact: true,
+        redirect: '/docs/petstore/swagger-petstore-yaml',
+      },
+    ],
+  },
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "facebook", // Usually your GitHub org/user name.
@@ -59,14 +70,9 @@ const config: Config = {
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "petstore/swagger-petstore-yaml",
             position: "left",
-            label: "Documentation",
-          },
-          {
-            label: "Petstore API",
-            position: "left",
-            to: "/docs/category/petstore-api",
+            label: "API Documentation",
           },
         ],
       },
@@ -77,12 +83,8 @@ const config: Config = {
             title: "Docs",
             items: [
               {
-                label: "Documentation",
-                to: "/docs/intro",
-              },
-              {
-                label: "Petstore API",
-                to: "/docs/category/petstore-api",
+                label: "API Documentation",
+                to: "/docs/petstore/swagger-petstore-yaml",
               },
             ],
           },
